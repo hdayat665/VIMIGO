@@ -149,6 +149,35 @@ class ContactInfoController extends BaseController
         return response()->json($result);
     }
 
+    /**
+     * @OA\Get(
+     * path="/api/getAllContactInfoSortAlpha",
+     * summary="getAllContactInfoSortAlpha",
+     * description="get all contact information sorting by alpha",
+     * operationId="getAllContactInfoSortAlpha",
+     * tags={"Contact Infomation"},
+     * @OA\RequestBody(
+     *
+     * ),
+     * @OA\Response(
+     *    response=200,
+     *    description="response",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="message", type="string", example="array")
+     *        )
+     *     )
+     * )
+     */
+
+    public function getAllContactInfoSortAlpha()
+    {
+        $data = [];
+        $cs = new ContactInfoServices;
+        $data['contactInfos'] = $cs->getAllContactInfoSortAlpha();
+
+        return response()->json($data);
+    }
+
     public function home()
     {
         $data = [];

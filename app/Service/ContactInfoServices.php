@@ -69,4 +69,16 @@ class ContactInfoServices
         return $data;
     }
 
+    public function getAllContactInfoSortAlpha()
+    {
+        $data = ContactInfo::orderBy('name', 'ASC')->get();
+
+        if (!$data) {
+            $data = [];
+        }
+
+        return $data;
+    }
+
+
 }

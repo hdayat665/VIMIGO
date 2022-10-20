@@ -224,6 +224,35 @@
                     }
                 }
             }
+        },
+        "/api/getAllContactInfoSortAlpha": {
+            "get": {
+                "tags": [
+                    "Contact Infomation"
+                ],
+                "summary": "getAllContactInfoSortAlpha",
+                "description": "get all contact information sorting by alpha",
+                "operationId": "getAllContactInfoSortAlpha",
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
