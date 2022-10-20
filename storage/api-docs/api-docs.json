@@ -1,0 +1,67 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "VIMIGO",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/getEmployee": {
+            "get": {
+                "tags": [
+                    "Home"
+                ],
+                "summary": "getEmployee",
+                "description": "get all Employee",
+                "operationId": "getEmployee",
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Sorry, wrong email address or password. Please try again"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/getTest": {
+            "get": {
+                "tags": [
+                    "Home"
+                ],
+                "summary": "getTest",
+                "description": "get all Employee",
+                "operationId": "getTest",
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Sorry, wrong email address or password. Please try again"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
