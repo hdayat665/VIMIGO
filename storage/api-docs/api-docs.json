@@ -253,6 +253,115 @@
                     }
                 }
             }
+        },
+        "/api/getAllContactInfoLimit5Latest": {
+            "get": {
+                "tags": [
+                    "Contact Infomation"
+                ],
+                "summary": "getAllContactInfoLimit5Latest",
+                "description": "get all contact information latest 5",
+                "operationId": "getAllContactInfoLimit5Latest",
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/searchByEmail/{email}": {
+            "get": {
+                "tags": [
+                    "Contact Infomation"
+                ],
+                "summary": "searchByEmail",
+                "description": "search by email",
+                "operationId": "searchByEmail",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "path",
+                        "description": "email",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "user1@mail.com"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/searchByGender/{gender}": {
+            "get": {
+                "tags": [
+                    "Contact Infomation"
+                ],
+                "summary": "searchByGender",
+                "description": "search by gender",
+                "operationId": "searchByGender",
+                "parameters": [
+                    {
+                        "name": "gender",
+                        "in": "path",
+                        "description": "gender",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Lelaki"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

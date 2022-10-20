@@ -20,6 +20,8 @@ class ContactInfoServices
     {
         $input= $r->input();
 
+        $input['status'] = 'active';
+
         ContactInfo::create($input);
 
         $data['status'] = true;
@@ -79,6 +81,39 @@ class ContactInfoServices
 
         return $data;
     }
+
+    public function getAllContactInfoLimit5Latest()
+    {
+        $data = ContactInfo::orderBy('created_at', 'DESC')->limit(5);
+
+        if (!$data) {
+            $data = [];
+        }
+
+        return $data;
+    }
+
+    public function search($email = '', $gender = '')
+    {
+        $cond[0] = ['status', 'active'];
+
+        if ($email) {
+            $cond[1] = ['email', $email];
+        }
+
+        if ($gender) {
+            $cond[2] = ['gender', $gender];
+        }
+        $data = ContactInfo::where($cond)->get();
+
+        if (!$data) {
+            $data = [];
+        }
+
+        return $data;
+    }
+
+
 
 
 }

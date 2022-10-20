@@ -26,6 +26,9 @@ Route::controller(ContactInfoController::class)->group(function () {
     Route::put('/updateContactInfo', 'updateContactInfo');
     Route::delete('/deleteContactInfo', 'deleteContactInfo');
     Route::get('/getAllContactInfoSortAlpha', 'getAllContactInfoSortAlpha');
+    Route::get('/searchByEmail/{email}', 'searchByEmail');
+    Route::get('/searchByGender/{gender}', 'searchByGender');
+
 
 });
 
