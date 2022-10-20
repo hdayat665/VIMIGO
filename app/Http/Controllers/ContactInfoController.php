@@ -178,6 +178,107 @@ class ContactInfoController extends BaseController
         return response()->json($data);
     }
 
+    /**
+     * @OA\Get(
+     * path="/api/getAllContactInfoLimit5Latest",
+     * summary="getAllContactInfoLimit5Latest",
+     * description="get all contact information latest 5",
+     * operationId="getAllContactInfoLimit5Latest",
+     * tags={"Contact Infomation"},
+     * @OA\RequestBody(
+     *
+     * ),
+     * @OA\Response(
+     *    response=200,
+     *    description="response",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="message", type="string", example="array")
+     *        )
+     *     )
+     * )
+     */
+
+    public function getAllContactInfoLimit5Latest()
+    {
+        $data = [];
+        $cs = new ContactInfoServices;
+        $data['contactInfos'] = $cs->getAllContactInfoLimit5Latest();
+
+        return response()->json($data);
+    }
+
+    /**
+     * @OA\Get(
+     * path="/api/searchByEmail/{email}",
+     * summary="searchByEmail",
+     * description="search by email",
+     * operationId="searchByEmail",
+     * tags={"Contact Infomation"},
+     * @OA\Parameter(
+     *          name="email",
+     *          description="email",
+     *          example="user1@mail.com",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     * @OA\Response(
+     *    response=200,
+     *    description="response",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="message", type="string", example="array")
+     *        )
+     *     )
+     * )
+     */
+
+    public function searchByEmail($email = '')
+    {
+        $data = [];
+        $cs = new ContactInfoServices;
+        $data['contactInfos'] = $cs->search($email, '');
+
+        return response()->json($data);
+    }
+
+    /**
+     * @OA\Get(
+     * path="/api/searchByGender/{gender}",
+     * summary="searchByGender",
+     * description="search by gender",
+     * operationId="searchByGender",
+     * tags={"Contact Infomation"},
+     * @OA\Parameter(
+     *          name="gender",
+     *          description="gender",
+     *          example="Lelaki",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     * @OA\Response(
+     *    response=200,
+     *    description="response",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="message", type="string", example="array")
+     *        )
+     *     )
+     * )
+     */
+
+    public function searchByGender($gender = '')
+    {
+        $data = [];
+        $cs = new ContactInfoServices;
+        $data['contactInfos'] = $cs->search('', $gender);
+
+        return response()->json($data);
+    }
+
     public function home()
     {
         $data = [];
