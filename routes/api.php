@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactInfoController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/getEmployee', [HomeController::class, 'getEmployee']);
-Route::get('/getTest', [HomeController::class, 'getTest']);
+Route::controller(ContactInfoController::class)->group(function () {
+    Route::get('/getAllContactInfo', 'getAllContactInfo');
+    Route::post('/createContactInfo', 'createContactInfo');
+    Route::put('/updateContactInfo', 'updateContactInfo');
+    Route::delete('/deleteContactInfo', 'deleteContactInfo');
+
+});
 

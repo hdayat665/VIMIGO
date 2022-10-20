@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Employee extends Authenticatable
+class ContactInfo extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -18,7 +18,7 @@ class Employee extends Authenticatable
      * @var array<int, string>
      */
 
-    protected $table ='employee';
+    protected $table ='contact_info';
 
     protected $guarded = [];
 
