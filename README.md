@@ -10,4 +10,8 @@ https://github.com/hdayat665/VIMIGO
 
 
 for demo video please click the link below.
+first task
+https://www.youtube.com/watch?v=-JTwFGP4hHA&ab_channel=HiDayat
+
+second task
 https://www.youtube.com/watch?v=-JTwFGP4hHA&ab_channel=HiDayat
