@@ -22,8 +22,16 @@ class ContactInfoServices
     public function createContactInfo($r)
     {
         $input= $r->input();
-
         $input['status'] = 'active';
+
+        // change array to string
+        $input['details'] = \implode(',', $input['details']);
+
+        // checking duplication
+        $contactInfo = ContactInfo::where('name', $input['name'])->first();
+        if ($contactInfo) {
+            return abort(409, 'Error, name already exist');
+        }
 
         try {
             ContactInfo::create($input);
