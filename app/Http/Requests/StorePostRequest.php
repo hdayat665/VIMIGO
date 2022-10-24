@@ -27,7 +27,9 @@ class StorePostRequest extends FormRequest
             'name' => 'required',
             'gender' => 'required',
             'email' => 'required|email',
-            'phone_number' => 'required'
+            'phone_number' => 'required',
+            'start_date' => 'date_format:Y-m-d',
+            "details"    => "array|min:3"
         ];
     }
 }

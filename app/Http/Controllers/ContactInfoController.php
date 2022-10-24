@@ -56,7 +56,9 @@ class ContactInfoController extends BaseController
      *       @OA\Property(property="name", type="string", format="text", example="wan ahamd"),
      *       @OA\Property(property="gender", type="string", format="text", example="Lelaki / Perempuan"),
      *       @OA\Property(property="email", type="string", format="email", example="user1@mail.com"),
-     *       @OA\Property(property="phone_number", type="string", format="email", example="+601928884992")
+     *       @OA\Property(property="phone_number", type="string", format="email", example="+601928884992"),
+     *       @OA\Property(property="start_date", type="date", example="2022-03-01"),
+     *       @OA\Property(property="details", type="string", example="{'abc','123}"),
      *    ),
      * ),
      * @OA\Response(

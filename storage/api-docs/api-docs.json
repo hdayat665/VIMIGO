@@ -74,6 +74,15 @@
                                         "type": "string",
                                         "format": "email",
                                         "example": "+601928884992"
+                                    },
+                                    "start_date": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "+2022-03-01"
+                                    },
+                                    "details": {
+                                        "type": "string",
+                                        "example": "['abc','123]"
                                     }
                                 },
                                 "type": "object"
