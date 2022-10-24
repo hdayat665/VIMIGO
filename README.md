@@ -15,3 +15,10 @@ https://www.youtube.com/watch?v=-JTwFGP4hHA&ab_channel=HiDayat
 
 second task
 https://www.youtube.com/watch?v=-JTwFGP4hHA&ab_channel=HiDayat
+
+writing
+- breaking change
+- https://medium.com/@hdayat665/how-to-reduce-breaking-change-in-code-236ec00d87df
+
+- migation without downtime
+- https://medium.com/@hdayat665/best-practice-to-do-migration-without-downtime-32aec24aa231
