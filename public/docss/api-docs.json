@@ -5,25 +5,25 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/api/getEmployee": {
+        "/api/getAllContactInfo": {
             "get": {
                 "tags": [
-                    "Home"
+                    "Contact Infomation"
                 ],
-                "summary": "getEmployee",
-                "description": "get all Employee",
-                "operationId": "getEmployee",
+                "summary": "getAllContactInfo",
+                "description": "get all contact information",
+                "operationId": "getAllContactInfo",
                 "requestBody": {},
                 "responses": {
                     "200": {
-                        "description": "Wrong credentials response",
+                        "description": "response",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "Sorry, wrong email address or password. Please try again"
+                                            "example": "array"
                                         }
                                     },
                                     "type": "object"
@@ -34,15 +34,53 @@
                 }
             }
         },
-        "/api/getTest": {
-            "get": {
+        "/api/createContactInfo": {
+            "post": {
                 "tags": [
-                    "Home"
+                    "Contact Infomation"
                 ],
-                "summary": "getTest",
-                "description": "get all Employee",
-                "operationId": "getTest",
-                "requestBody": {},
+                "summary": "Create Contact Info",
+                "description": "Create Contact Info",
+                "operationId": "createContactInfo",
+                "requestBody": {
+                    "description": "create information",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "gender",
+                                    "email",
+                                    "phone_number"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "wan ahamd"
+                                    },
+                                    "gender": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Lelaki / Perempuan"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "user1@mail.com"
+                                    },
+                                    "phone_number": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "+601928884992"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "Wrong credentials response",
@@ -52,7 +90,265 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "Sorry, wrong email address or password. Please try again"
+                                            "example": "Sorry, wrong email address Please try again"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/updateContactInfo": {
+            "put": {
+                "tags": [
+                    "Contact Infomation"
+                ],
+                "summary": "Update Contact Info",
+                "description": "Update Contact Info. You can get id contact info by using GET method on first function above",
+                "operationId": "updateContactInfo",
+                "requestBody": {
+                    "description": "update information",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "gender",
+                                    "email",
+                                    "phone_number"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "1"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "wan ahamd"
+                                    },
+                                    "gender": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Lelaki / Perempuan"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "user1@mail.com"
+                                    },
+                                    "phone_number": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "+601928884992"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Sorry, wrong email address Please try again"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/deleteContactInfo": {
+            "delete": {
+                "tags": [
+                    "Contact Infomation"
+                ],
+                "summary": "Delete Contact Info",
+                "description": "Delete Contact Info. You can get id contact info by using GET method on first function above",
+                "operationId": "deleteContactInfo",
+                "requestBody": {
+                    "description": "Delete information",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "gender",
+                                    "email",
+                                    "phone_number"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Sorry, wrong email address Please try again"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/getAllContactInfoSortAlpha": {
+            "get": {
+                "tags": [
+                    "Contact Infomation"
+                ],
+                "summary": "getAllContactInfoSortAlpha",
+                "description": "get all contact information sorting by alpha",
+                "operationId": "getAllContactInfoSortAlpha",
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/getAllContactInfoLimit5Latest": {
+            "get": {
+                "tags": [
+                    "Contact Infomation"
+                ],
+                "summary": "getAllContactInfoLimit5Latest",
+                "description": "get all contact information latest 5",
+                "operationId": "getAllContactInfoLimit5Latest",
+                "requestBody": {},
+                "responses": {
+                    "200": {
+                        "description": "response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/searchByEmail/{email}": {
+            "get": {
+                "tags": [
+                    "Contact Infomation"
+                ],
+                "summary": "searchByEmail",
+                "description": "search by email",
+                "operationId": "searchByEmail",
+                "parameters": [{
+                    "name": "email",
+                    "in": "path",
+                    "description": "email",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    },
+                    "example": "user1@mail.com"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/searchByGender/{gender}": {
+            "get": {
+                "tags": [
+                    "Contact Infomation"
+                ],
+                "summary": "searchByGender",
+                "description": "search by gender",
+                "operationId": "searchByGender",
+                "parameters": [{
+                    "name": "gender",
+                    "in": "path",
+                    "description": "gender",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    },
+                    "example": "Lelaki"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "array"
                                         }
                                     },
                                     "type": "object"

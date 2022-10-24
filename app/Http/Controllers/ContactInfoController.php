@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
 use App\Service\ContactInfoServices;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -68,7 +69,7 @@ class ContactInfoController extends BaseController
      * )
      */
 
-    public function createContactInfo(Request $r)
+    public function createContactInfo(StorePostRequest $r)
     {
         $result = [];
         $cs = new ContactInfoServices;

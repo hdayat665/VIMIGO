@@ -2,6 +2,8 @@
 namespace App\Service;
 
 use App\Models\ContactInfo;
+use Exception;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class ContactInfoServices
 {
@@ -10,7 +12,8 @@ class ContactInfoServices
         $data = ContactInfo::all();
 
         if (!$data) {
-            $data = [];
+            throw new Exception("Error Processing Request", 1);
+
         }
 
         return $data;
@@ -22,15 +25,19 @@ class ContactInfoServices
 
         $input['status'] = 'active';
 
-        ContactInfo::create($input);
+        try {
+            ContactInfo::create($input);
 
-        $data['status'] = true;
-        $data['title'] = 'Success';
-        $data['type'] = 'success';
-        $data['msg'] = 'Success create contact info';
-        $data['data'] = ContactInfo::orderBy('created_at', 'DESC')->first();
+            $data['status'] = true;
+            $data['title'] = 'Success';
+            $data['type'] = 'success';
+            $data['msg'] = 'Success create contact info';
+            $data['data'] = ContactInfo::where('name', $input['name'])->first();
+            return $data;
+        } catch (\Throwable $th) {
+            return abort(500, 'Erorr could not create contact info, '.$th->getMessage());
+        }
 
-        return $data;
     }
 
     public function updateContactInfo($r)
@@ -84,7 +91,7 @@ class ContactInfoServices
 
     public function getAllContactInfoLimit5Latest()
     {
-        $data = ContactInfo::orderBy('created_at', 'DESC')->limit(5);
+        $data = ContactInfo::orderBy('created_at', 'DESC')->limit(5)->get();
 
         if (!$data) {
             $data = [];
